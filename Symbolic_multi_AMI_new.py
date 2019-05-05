@@ -80,7 +80,7 @@ def sym_rep_g(g):  # symbolic representation of multiplication of Green's functi
         #print arr_comp_new(g[i], g[j])
         e[j][j]=0
         e[j][i]=e[i][i]
-  #print 'e = ', e    
+  print 'e = ', e    
   return g,e,val  # g:frequency part, e: momentum part, val: total representation
 #End
 #################################
@@ -688,9 +688,9 @@ def f(z,B):
   reg=0
   #print 'sigma = ', sigma
   #print 'z = ', z[0]
-  #if sigma*exp(B*z[0]-reg)+1.0 == 0:
-    #reg = 0.01
-    #print '????'
+  if sigma*exp(B*z[0]-reg)+1.0 == 0:
+    reg = 0.001
+    print '????'
   val = 1.0/(sigma*exp(B*z[0]-reg)+1.0)
   return val
 #End
@@ -794,14 +794,14 @@ def G_eval(g_arr_freq, g_arr_mnta, ext, g_freq_init,p,h,M,bet):
     else:
       val = val/( e + g_arr_freq[i][num-1]*(ext*1j) )  
       #print '*****'
-      return val
+  return val
 #End
 ###################################
 def AMI_arrays_out(G_init,n):
   temp1_freq = [None]*20   # auxiliary variable
   temp1_mnta = [None]*20   # auxiliary variable
-  temp2_freq = [None]*8    # auxiliary variable
-  temp2_mnta = [None]*8    # auxiliary variable
+  temp2_freq = [None]*8   # auxiliary variable
+  temp2_mnta = [None]*8   # auxiliary variable
   temp3 = [None]*8    # auxiliary variable
   S_list = [[None]*8 for i in range(0,n+1)]    # auxiliary variable
   P_list_freq = [[None]*8 for i in range(0,n+1)]    # auxiliary variable
